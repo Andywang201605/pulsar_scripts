@@ -98,7 +98,7 @@ def split_uwl_data(
     #data = np.reshape(data, (nsub, nsblk/(8/nbits), npol, nchan_new)).astype(int)
     data = data[:,:,mask_dat]
     data = np.reshape(data, (nsub, int(nsblk/(8/nbits)), npol, nchan_new)).astype(int)
-    logger.info("new data shape: {data.shape}...")
+    logger.info(f"new data shape: {data.shape}...")
 
     col_data = fits.Column(name='DATA', format='{0}B'.format(nchan_new*int(nsblk/(8/nbits))*npol), dim='({0},{1},{2})'.format(nchan_new, npol, int(nsblk/(8/nbits))), array=data)
 
